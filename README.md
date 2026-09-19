@@ -1,7 +1,7 @@
 <p align="center"><img src="docs/hero.png" alt="微信小程序通过 BLE 控制 ESP32、光耦和电动车遥控器" width="100%"></p>
 
-<h1 align="center">ESP32 微信小程序 BLE 遥控器</h1>
-<p align="center"><strong>微信小程序 → BLE → ESP32 → 光耦 → 原装遥控器 → 电动车</strong></p>
+<h1 align="center">电动车手机遥控钥匙</h1>
+<p align="center"><strong>低成本、低复杂度：微信小程序 → BLE → ESP32 → 光耦 → 原装遥控器 → 电动车</strong></p>
 <p align="center"><img src="https://img.shields.io/badge/ESP32-MicroPython-00a8e8?style=flat-square"><img src="https://img.shields.io/badge/Transport-BLE-00bfa5?style=flat-square"><img src="https://img.shields.io/badge/Client-WeChat-07c160?style=flat-square"><img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square"></p>
 
 > [!WARNING]
@@ -9,9 +9,9 @@
 
 ## 你可能遇到的问题
 
-原装遥控器能控制车辆，却无法被手机安全地近距离操作；直接处理 RF 又会遇到滚动码、兼容性与失步问题。
+你希望不用天天带物理遥控钥匙，却又不想拆解、复制或研究车辆的射频协议。若电动车后备箱本身是密码锁，可把这套设备与原遥控器一起放进后备箱：出门只带手机，需要时用小程序控制车辆。
 
-本项目只做一件事：**保留原装遥控器的编码和发射能力，让 ESP32 通过光耦模拟真人短按。**
+本项目只做一件事：**以低成本、低复杂度保留原装遥控器的编码和发射能力，让 ESP32 通过光耦模拟真人短按。**
 
 | 常见做法 | 本项目 |
 | --- | --- |
@@ -19,6 +19,19 @@
 | ESP32 与遥控器共地 | 每个按键独立光耦隔离 |
 | 蓝牙一连接就自动开锁 | 明确点按，避免瞬断误动作 |
 | 设备名或 MAC 作为身份 | HMAC、随机挑战、序号防重放 |
+
+### 推荐放置方式
+
+```text
+后备箱（密码锁）
+├── 原装遥控器：仍负责滚动码和 RF 发射
+└── ESP32 + 4 路光耦：由独立电源供电，连接遥控器按键焊盘
+
+随身携带
+└── 手机：微信小程序近距离 BLE 控制
+```
+
+后备箱密码是物理访问的第一道保护；请设置独立、可靠的密码，并妥善固定 ESP32 和遥控器，避免行驶震动导致接线松脱。
 
 ## 工作架构
 
@@ -30,7 +43,7 @@ flowchart LR
   fob -->|"原装无线信号"| scooter["🛵 电动车"]
 ```
 
-支持四路短按：**锁车、解锁、启动（闪电键）、寻车（喇叭键）**；同一时刻只允许一路输出。
+支持四路短按：**锁车、解锁、启动（闪电键）、寻车（喇叭键）**；同一时刻只允许一路输出。手机就是日常遥控入口，原装遥控器保留在后备箱内。
 
 ## 三分钟上手
 
@@ -55,7 +68,7 @@ flowchart LR
 BLE_PAIRING_SECRET = "替换为至少 32 位随机长密码"
 ```
 
-随后在小程序密码框输入同一密码；密码不写入小程序源码或日志。
+随后在小程序密码框输入同一密码；密码不写入小程序源码或日志。这样即使有人在附近发现设备，也不能直接发送控制命令。
 
 ### 3. 刷入与连接
 
