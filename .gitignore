@@ -1,0 +1,5 @@
+.DS_Store
+*.mpy
+miniprogram/miniprogram_npm/
+miniprogram/node_modules/
+private-config.py

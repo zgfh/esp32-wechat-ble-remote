@@ -1,0 +1,1 @@
+<view class="page"><text class="title">车辆遥控器</text><text>{{status}}</text><button class="connect" bindtap="connect">连接 ESP32</button><button class="unlock" bindtap="unlock" disabled="{{!authenticated}}">解锁</button><button class="lock" bindtap="lock" disabled="{{!authenticated}}">锁车</button><text class="hint">确认周边安全后再操作</text></view>
