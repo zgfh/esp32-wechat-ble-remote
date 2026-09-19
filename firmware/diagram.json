@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "author": "esp32-play",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-led", "id": "lock_opto", "top": -40, "left": 300, "attrs": { "color": "amber", "label": "LOCK OPTO" } },
+    { "type": "wokwi-led", "id": "unlock_opto", "top": 80, "left": 300, "attrs": { "color": "green", "label": "UNLOCK OPTO" } },
+    { "type": "wokwi-resistor", "id": "r_lock", "top": 0, "left": 200, "attrs": { "value": "330" } },
+    { "type": "wokwi-resistor", "id": "r_unlock", "top": 120, "left": 200, "attrs": { "value": "330" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:26", "r_lock:1", "green", [] ],
+    [ "r_lock:2", "lock_opto:A", "green", [] ],
+    [ "lock_opto:C", "esp:GND.1", "black", [] ],
+    [ "esp:27", "r_unlock:1", "green", [] ],
+    [ "r_unlock:2", "unlock_opto:A", "green", [] ],
+    [ "unlock_opto:C", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

@@ -1,1 +1,9 @@
-.page{display:flex;flex-direction:column;gap:24rpx;padding:90rpx 40rpx;text-align:center;background:#f8fafc;min-height:100vh;box-sizing:border-box}.title{font-size:48rpx;font-weight:bold;color:#0f172a}.connect,.unlock,.lock{color:#fff;border-radius:16rpx;font-weight:bold}.connect{background:#2563eb}.unlock{background:#047857}.lock{background:#d97706}.hint{font-size:24rpx;color:#64748b;margin-top:40rpx}
+.page{display:flex;flex-direction:column;gap:24rpx;padding:90rpx 40rpx;text-align:center;background:#f8fafc;min-height:100vh;box-sizing:border-box}.title{font-size:48rpx;font-weight:bold;color:#0f172a}.connect,.unlock,.lock,.start,.find{color:#fff;border-radius:16rpx;font-weight:bold}.connect{background:#2563eb}.unlock{background:#047857}.lock{background:#d97706}.hint{font-size:24rpx;color:#64748b;margin-top:40rpx}
+
+.start{background:#7c3aed}
+
+.logs-panel{background:#0f172a;color:#e2e8f0;border-radius:16rpx;padding:24rpx;text-align:left}.logs-toolbar{display:flex;align-items:center;justify-content:space-between;font-weight:bold}.logs-toolbar button{margin:0;font-size:24rpx}.logs-hint{display:block;font-size:22rpx;color:#94a3b8;margin:16rpx 0}.logs-scroll{height:420rpx}.log-line{display:block;font-family:monospace;font-size:22rpx;line-height:1.6;white-space:pre-wrap;word-break:break-all}
+
+.password-panel{text-align:left}.password-label{display:block;font-size:28rpx;margin-bottom:14rpx;color:#334155}.password-input{background:#fff;border:2rpx solid #cbd5e1;border-radius:12rpx;padding:22rpx;font-size:28rpx}.password-hint{display:block;margin-top:10rpx;font-size:22rpx;color:#64748b}
+
+.find{background:#087e8b}

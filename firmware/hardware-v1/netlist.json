@@ -1,0 +1,142 @@
+[
+  {
+    "channel": 1,
+    "esp32_gpio": 26,
+    "s3_gpio": 4,
+    "nets": {
+      "IN1": [
+        "Ropto1.1",
+        "Rled1.1",
+        "Rdown1.1"
+      ],
+      "OPTO_A1": [
+        "Ropto1.2",
+        "U1.1"
+      ],
+      "LED_A1": [
+        "Rled1.2",
+        "LED1.A"
+      ],
+      "ESP_GND": [
+        "U1.2",
+        "LED1.K",
+        "Rdown1.2"
+      ],
+      "REMOTE_A1": [
+        "U1.4",
+        "SW1.A",
+        "J1.A"
+      ],
+      "REMOTE_B1": [
+        "U1.3",
+        "SW1.B",
+        "J1.B"
+      ]
+    }
+  },
+  {
+    "channel": 2,
+    "esp32_gpio": 27,
+    "s3_gpio": 5,
+    "nets": {
+      "IN2": [
+        "Ropto2.1",
+        "Rled2.1",
+        "Rdown2.1"
+      ],
+      "OPTO_A2": [
+        "Ropto2.2",
+        "U2.1"
+      ],
+      "LED_A2": [
+        "Rled2.2",
+        "LED2.A"
+      ],
+      "ESP_GND": [
+        "U2.2",
+        "LED2.K",
+        "Rdown2.2"
+      ],
+      "REMOTE_A2": [
+        "U2.4",
+        "SW2.A",
+        "J2.A"
+      ],
+      "REMOTE_B2": [
+        "U2.3",
+        "SW2.B",
+        "J2.B"
+      ]
+    }
+  },
+  {
+    "channel": 3,
+    "esp32_gpio": 25,
+    "s3_gpio": 6,
+    "nets": {
+      "IN3": [
+        "Ropto3.1",
+        "Rled3.1",
+        "Rdown3.1"
+      ],
+      "OPTO_A3": [
+        "Ropto3.2",
+        "U3.1"
+      ],
+      "LED_A3": [
+        "Rled3.2",
+        "LED3.A"
+      ],
+      "ESP_GND": [
+        "U3.2",
+        "LED3.K",
+        "Rdown3.2"
+      ],
+      "REMOTE_A3": [
+        "U3.4",
+        "SW3.A",
+        "J3.A"
+      ],
+      "REMOTE_B3": [
+        "U3.3",
+        "SW3.B",
+        "J3.B"
+      ]
+    }
+  },
+  {
+    "channel": 4,
+    "esp32_gpio": null,
+    "s3_gpio": null,
+    "nets": {
+      "IN4": [
+        "Ropto4.1",
+        "Rled4.1",
+        "Rdown4.1"
+      ],
+      "OPTO_A4": [
+        "Ropto4.2",
+        "U4.1"
+      ],
+      "LED_A4": [
+        "Rled4.2",
+        "LED4.A"
+      ],
+      "ESP_GND": [
+        "U4.2",
+        "LED4.K",
+        "Rdown4.2"
+      ],
+      "REMOTE_A4": [
+        "U4.4",
+        "SW4.A",
+        "J4.A"
+      ],
+      "REMOTE_B4": [
+        "U4.3",
+        "SW4.B",
+        "J4.B"
+      ]
+    }
+  }
+]

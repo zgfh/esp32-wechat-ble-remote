@@ -1,0 +1,21 @@
+const assert = require('assert'), fs = require('fs'), vm = require('vm'), path = require('path');
+const hmac = require('../utils/hmac');
+let page; const writes = [];
+const app = {}; const testPassword='k'.repeat(64);
+const wx = new Proxy({}, {get: (_, name) => name === 'writeBLECharacteristicValue' ? o => {writes.push(Buffer.from(o.value));o.success({});} : () => {}});
+vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../pages/index/index.js'),'utf8'), {getApp:()=>app, require:()=>hmac, Page:p=>page=p, wx, console:{info(){},warn(){},error(){}}, Date, setTimeout,clearTimeout,Uint8Array,Array,Promise,decodeURIComponent});
+page.setData=d=>Object.assign(page.data,d);page.onLoad();assert.equal(page.pairingPassword,'');page.onPasswordInput({detail:{value:testPassword}});page.deviceId='test-device';page.serviceId='s';page.commandId='c';
+(async()=>{
+ const nonce='a'.repeat(32);page.status('CHALLENGE2:'+nonce);await page.queue;
+ assert.equal(Buffer.concat(writes).toString(),'AUTH2:'+hmac(testPassword,'auth:v2:'+nonce)+'\n');
+ page.status('AUTH_OK');assert(page.data.ok);writes.length=0;
+ page.send('CMD:LOCK');page.send('CMD:UNLOCK');page.findCar();await page.queue;
+ const messages=Buffer.concat(writes).toString().trim().split('\n');
+ assert.equal(messages[0],'CMD2:1:LOCK:'+hmac(testPassword,'cmd:v2:'+nonce+':1:LOCK'));
+ assert.equal(messages[1],'CMD2:2:UNLOCK:'+hmac(testPassword,'cmd:v2:'+nonce+':2:UNLOCK'));
+ assert.equal(messages[2],'CMD2:3:FIND:'+hmac(testPassword,'cmd:v2:'+nonce+':3:FIND'));
+ assert(writes.every(p=>p.length<=20));
+ page.reset('disconnected');assert.equal(page.sessionNonce,null);assert.equal(page.commandSeq,0);assert.equal(page.data.ok,false);
+ page.onUnload();assert.equal(page.pairingPassword,'');
+ console.log('Miniapp v2 handshake, queued signatures, packet size and reset OK');
+})().catch(e=>{console.error(e);process.exitCode=1;});

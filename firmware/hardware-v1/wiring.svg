@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1400" viewBox="0 0 1400 1400"><rect width="1400" height="1400" fill="#f8fafc"/><style>text{font-family:PingFang SC,Arial,sans-serif;fill:#172b4d} .wire{fill:none;stroke:#334155;stroke-width:3}</style>
+<text x="45" y="50" font-size="30">四路 PC817 永久接线：每一路照此重复</text>
+<text x="45" y="87" font-size="21">电气原理图，不是洞洞板孔位图；按脚号焊接，背面视角左右相反。</text>
+<path d="M790 115 V640" stroke="#e11d48" stroke-width="3" stroke-dasharray="10 7"/>
+<text x="70" y="140" font-size="24">ESP32 侧：共用 ESP32 GND</text>
+<text x="865" y="140" font-size="24">遥控器侧：每路独立触点对</text>
+<text x="45" y="245" font-size="21">GPIO</text>
+<polyline points="110,240 175,240 175,190 245,190" class="wire"/>
+<rect x="245" y="170" width="115" height="40" rx="6" fill="white" stroke="#64748b" stroke-width="2"/>
+<text x="255" y="197.0" font-size="20">330 Ω</text>
+<polyline points="360,190 525,190" class="wire"/>
+<rect x="525" y="160" width="220" height="180" rx="6" fill="white" stroke="#64748b" stroke-width="2"/>
+<text x="535" y="257.0" font-size="20">PC817</text>
+<text x="535" y="198" font-size="18">1 → 内部红外 LED</text>
+<text x="535" y="292" font-size="18">2 → ESP32 GND</text>
+<polyline points="175,240 175,370 245,370" class="wire"/>
+<rect x="245" y="350" width="115" height="40" rx="6" fill="white" stroke="#64748b" stroke-width="2"/>
+<text x="255" y="377.0" font-size="20">1 kΩ</text>
+<polyline points="360,370 400,370" class="wire"/>
+<rect x="400" y="350" width="210" height="40" rx="6" fill="white" stroke="#64748b" stroke-width="2"/>
+<text x="410" y="377.0" font-size="20">指示 LED：＋ → −</text>
+<polyline points="610,370 665,370 665,420 220,420" class="wire"/>
+<text x="225" y="450" font-size="20">GND（输入侧公共线）</text>
+<polyline points="525,290 500,290 500,345 700,345 700,420 665,420" class="wire"/>
+<polyline points="175,240 130,240 130,490 245,490" class="wire"/>
+<rect x="245" y="470" width="115" height="40" rx="6" fill="white" stroke="#64748b" stroke-width="2"/>
+<text x="255" y="497.0" font-size="20">10 kΩ</text>
+<polyline points="360,490 480,490 480,420" class="wire"/>
+<text x="45" y="545" font-size="20">10 kΩ 下拉接在 GPIO 与 GND 之间。</text>
+<polyline points="745,190 940,190 1190,190" class="wire"/>
+<text x="755" y="180" font-size="18">4 / C</text>
+<text x="1195" y="196" font-size="20">触点 A</text>
+<polyline points="745,290 940,290 1190,290" class="wire"/>
+<text x="755" y="325" font-size="18">3 / E</text>
+<text x="1195" y="298" font-size="20">触点 B</text>
+<polyline points="940,190 940,220" class="wire"/>
+<polyline points="940,260 940,290" class="wire"/>
+<polyline points="940,220 967,251" class="wire"/>
+<text x="990" y="242" font-size="21">常开按钮</text>
+<text x="845" y="380" font-size="21">A：测得相对正端 → 4 脚</text>
+<text x="845" y="415" font-size="21">B：测得相对负端 → 3 脚</text>
+<text x="845" y="475" font-size="21">按钮直接跨 A、B，绕过软件。</text>
+<text x="845" y="515" font-size="21">不接 ESP32 的 3V3 / GND。</text>
+<text x="845" y="555" font-size="21">四路 A/B 不自行合并成公共线。</text>
+<text x="45" y="602" font-size="22">LED 只表示 GPIO 输入状态，不能证明光耦输出或车辆状态。</text>
+<rect x="45" y="650" width="1310" height="270" rx="6" fill="white" stroke="#64748b" stroke-width="2"/>
+<text x="55" y="792.0" font-size="20"></text>
+<text x="70" y="690" font-size="22">通道（按照片从上到下）     普通 ESP32       ESP32-S3       当前软件</text>
+<text x="70" y="730" font-size="20">1 红色 / 锁车                         GPIO26             GPIO4             已有</text>
+<text x="70" y="770" font-size="20">2 绿色 / 解锁                         GPIO27             GPIO5             已有</text>
+<text x="70" y="810" font-size="20">3 黄色 / 第三功能                  GPIO25             GPIO6             固件命名 start，触点需确认</text>
+<text x="70" y="850" font-size="20">4 蓝色 / 预留                         暂不接 GPIO      暂不接 GPIO      尚未实现</text>
+<text x="70" y="891" font-size="20">供电：ESP32 用 USB；遥控器保留原供电。双节电池座接法等待型号、电压及极性确认。</text>
+<text x="45" y="966" font-size="20">先断电焊接。PC817 按厂家 1 脚标记识别；四脚按钮先用通断档找出按下才接通的一对。</text>
+</svg>

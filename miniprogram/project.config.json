@@ -1,1 +1,43 @@
-{"miniprogramRoot":"./","projectname":"esp32-wechat-ble-remote","appid":"touristappid","setting":{"es6":true}}
+{
+  "miniprogramRoot": "./",
+  "projectname": "remote-key-miniapp",
+  "appid": "wx40fd453d3717aa17",
+  "setting": {
+    "es6": true,
+    "postcss": false,
+    "compileWorklet": false,
+    "minified": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "enhance": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "compileType": "miniprogram",
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "file",
+        "value": "pairing.local.js"
+      },
+      {
+        "type": "folder",
+        "value": "tests"
+      }
+    ],
+    "include": []
+  },
+  "editorSetting": {}
+}
