@@ -56,7 +56,7 @@ PC817 脚号依据 [Sharp 数据表](https://www.learnabout-electronics.org/Down
 
 ## BLE 协议与使用
 
-1. 在 ESP32 的 `pairing_config.py` 配置至少 32 字符的随机密码；用户在小程序密码框输入相同内容。密码不再放入小程序源码或安装包。
+1. 仓库随附 `pairing_config.py`，其默认密码 `dangerous` 仅供联调；用于真实设备前，必须按需改为至少 32 字符的随机密码。用户在小程序密码框输入相同内容。密码不再放入小程序源码或安装包。
 2. 小程序扫描 `ESP32-Car-Remote`，连接服务 `6e400001-b5a3-f393-e0a9-e50e24dcca9e` 后订阅状态特征。
 3. 小程序订阅成功后写入 `HELLO`；ESP32 对该连接发送 `CHALLENGE:<nonce>`。小程序写入 `AUTH:SHA256(secret:nonce)`，收到 `AUTH_OK` 后才发送 `CMD:LOCK` 或 `CMD:UNLOCK`。
 

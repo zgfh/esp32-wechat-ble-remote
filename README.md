@@ -75,9 +75,10 @@ LICENSE                MIT 开源许可证
 
 ## 快速开始
 
-1. 创建 `firmware/pairing_config.py`，填写至少 32 字符的随机密码：`BLE_PAIRING_SECRET = "..."`；此文件已被忽略，不会提交。
-2. 将 [`firmware/main.py`](firmware/main.py)、[`firmware/security.py`](firmware/security.py) 与该配置上传到 ESP32 MicroPython 根目录并运行。
-3. 用微信开发者工具导入 [`miniprogram/`](miniprogram/)；在小程序密码框输入相同密码（不写入源码）。
+1. 仓库随附 [`firmware/pairing_config.py`](firmware/pairing_config.py)，默认密码为 `dangerous`，仅用于首次联调。
+2. **部署前必须按需修改**其中的 `BLE_PAIRING_SECRET`：实际使用请改为至少 32 字符的随机密码，并在小程序密码框输入相同值。默认密码公开可见，不能用于真实车辆。
+3. 将 [`firmware/main.py`](firmware/main.py)、[`firmware/security.py`](firmware/security.py) 与该配置上传到 ESP32 MicroPython 根目录并运行。
+4. 用微信开发者工具导入 [`miniprogram/`](miniprogram/)；在小程序密码框输入相同密码（不写入源码）。
 5. 使用真机预览，授予蓝牙/附近设备权限，连接并等待“已验证，可操作”。
 
 > 微信开发者工具不能模拟 BLE，必须使用真实手机测试。
@@ -94,7 +95,7 @@ LICENSE                MIT 开源许可证
 
 ## 安全建议
 
-- BLE 广播名称不是身份验证；使用长而唯一的配对密钥。
+- 默认密码 `dangerous` 是公开演示值，必须按实际需要修改；BLE 广播名称不是身份验证。
 - 挑战响应避免复用旧认证消息，但它不是车规数字钥匙。
 - 不要将控制接口暴露到公网；更高要求应增加 BLE 加密、硬件安全元件与距离测量。
 
