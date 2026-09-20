@@ -35,7 +35,7 @@
 
 ## 工作架构
 
-![完整工作原理图：手机、BLE、ESP32、光耦、原装遥控器和电动车](docs/working-principle.png)
+![完整工作原理图：手机、BLE、ESP32、光耦、原装遥控器和电动车](docs/architecture.svg)
 
 ```mermaid
 flowchart LR
